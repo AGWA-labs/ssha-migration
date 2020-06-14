@@ -61,9 +61,13 @@ func handle(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	user := users[username]
-	if user == nil {
+	user, userExists := users[username]
+	if !userExists {
 		http.Error(w, "No such user", 404)
+		return
+	}
+	if user == nil {
+		w.WriteHeader(204)
 		return
 	}
 	newPassword, err := decrypt(user, password)

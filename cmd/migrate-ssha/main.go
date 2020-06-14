@@ -74,6 +74,7 @@ func main() {
 		password := fields[1]
 
 		if !strings.HasPrefix(password, "{SSHA}") {
+			users[username] = nil
 			continue
 		}
 		newPassword, user, err := migrate(strings.TrimPrefix(password, "{SSHA}"))
