@@ -3,7 +3,7 @@
 Reads a shadow file from stdin and outputs two files:
 
 * `chpasswd.input` - a file containing a random password for each SSHA user that can be fed to the `chpaswd` command.
-* `ssha-users.json` - a JSON file contianing the random password for each SSHA user, encrypted with their old password.
+* `ssha-users.json` - a JSON file containing the random password for each SSHA user, encrypted with their old password.
    
 ### decrypt-ssha.cgi
     
